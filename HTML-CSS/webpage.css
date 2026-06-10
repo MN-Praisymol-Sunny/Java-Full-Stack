@@ -1,0 +1,49 @@
+img{
+  border-style: solid;
+  border-width: 0.5cm;
+  border-color: black;  
+  border-radius:  50px;
+  position:fixed;
+  float: left;
+  margin-right:20px ;
+  width: 150px;
+  height: 150px;
+
+}
+
+
+
+
+img{
+    transition: transform 10s linear 3s;
+}
+img :hover{
+    transform: translate (18cm,15cm);
+}
+
+h2{color:blue;}
+
+/* Layout for About section: image left, text right */
+.about{
+  display:flex;
+  align-items:flex-start;
+  gap:20px;
+  margin:16px 0;
+}
+.about img{
+  position:static;
+  float:none;
+  margin:0;
+  width:150px;
+  height:auto;
+  border-style: solid;
+  border-width: 0.5cm;
+  border-color: black;  
+  border-radius: 50px;
+}
+.about-text{max-width:680px}
+
+/* Fix hover selector */
+img:hover{
+  transform: none;
+}
