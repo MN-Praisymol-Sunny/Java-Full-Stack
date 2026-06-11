@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M.N Praisymol Sunny | ECE Portfolio</title>
+    <style>
+        :root {
+            --bg: #fff7d8;
+            --surface: #fff4e6;
+            --text: #121212;
+            --heading: #6c3dc8;
+            --accent: #ff5fb7;
+            --accent-soft: rgba(255, 95, 183, 0.14);
+            --muted: #5f6576;
+            --border: rgba(255, 95, 183, 0.18);
+            --shadow: 0 24px 68px rgba(0, 0, 0, 0.08);
+            --radius: 1.8rem;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: radial-gradient(circle at top left, rgba(255, 95, 183, 0.12), transparent 18%),
+                        radial-gradient(circle at right, rgba(108, 61, 200, 0.1), transparent 20%),
+                        linear-gradient(180deg, var(--bg) 0%, #fff4d1 48%, #fff3cc 100%);
+            color: var(--text);
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(circle at 20% 15%, rgba(255, 95, 183, 0.14), transparent 20%),
+                        radial-gradient(circle at 80% 25%, rgba(108, 61, 200, 0.08), transparent 18%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.4rem 1.5rem;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            border-bottom: 1px solid rgba(255, 95, 183, 0.18);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .brand strong {
+            font-size: 0.95rem;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+            color: var(--heading);
+        }
+
+        .theme-button {
+            border: 1px solid rgba(255, 95, 183, 0.18);
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--text);
+            padding: 0.85rem 1.2rem;
+            border-radius: 999px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
+        }
+
+        .theme-button:hover {
+            transform: translateY(-1px);
+            background: rgba(255, 255, 255, 1);
+        }
+
+        main {
+            width: min(1180px, calc(100% - 2rem));
+            margin: 0 auto;
+            padding: 3rem 0 4rem;
+        }
+
+        .hero {
+            display: grid;
+            gap: 2rem;
+            align-items: center;
+            padding: 2.5rem;
+            border-radius: 2.2rem;
+            background: var(--surface);
+            border: 1px solid rgba(255, 95, 183, 0.16);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 20% 20%, rgba(255, 95, 183, 0.14), transparent 20%),
+                        radial-gradient(circle at 85% 12%, rgba(108, 61, 200, 0.08), transparent 18%);
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            right: -4rem;
+            top: 18%;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: rgba(255, 95, 183, 0.14);
+            filter: blur(20px);
+            pointer-events: none;
+        }
+
+        .hero-content,
+        .profile-card,
+        .card {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .hero h1 {
+            margin: 0;
+            font-size: clamp(2.4rem, 4vw, 4.1rem);
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+        }
+
+        .tagline {
+            color: var(--heading);
+            font-weight: 700;
+            margin: 0 0 1rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            margin: 0;
+            color: var(--muted);
+            max-width: 640px;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.75rem;
+        }
+
+        .button-primary,
+        .button-secondary {
+            border: none;
+            border-radius: 999px;
+            padding: 1rem 1.6rem;
+            cursor: pointer;
+            transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        .button-primary {
+            background: linear-gradient(135deg, #ff6eb7, #7d5cff);
+            color: #fff;
+            box-shadow: 0 18px 34px rgba(255, 110, 183, 0.2);
+        }
+
+        .button-secondary {
+            background: rgba(255, 95, 183, 0.12);
+            border: 1px solid rgba(255, 95, 183, 0.18);
+            color: var(--text);
+        }
+
+        .button-primary:hover,
+        .button-secondary:hover {
+            transform: translateY(-2px);
+        }
+
+        .profile-card {
+            padding: 2rem;
+            border-radius: var(--radius);
+            background: rgba(255, 255, 255, 0.96);
+            border: 1px solid rgba(255, 95, 183, 0.16);
+            display: grid;
+            gap: 1.15rem;
+            max-width: 420px;
+            justify-self: center;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
+            color: var(--text);
+        }
+
+        .profile-card h2 {
+            margin: 0;
+            font-size: 1.8rem;
+            color: var(--heading);
+        }
+
+        .profile-card .meta {
+            display: grid;
+            gap: 0.85rem;
+        }
+
+        .profile-card strong {
+            display: inline-block;
+            min-width: 90px;
+            color: var(--accent);
+        }
+
+        .profile-card p {
+            margin: 0;
+            line-height: 1.75;
+            color: var(--muted);
+        }
+
+        .section {
+            margin-top: 3.5rem;
+        }
+
+        .section h2 {
+            margin-bottom: 1rem;
+            font-size: 2rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--heading);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -0.55rem;
+            width: 4rem;
+            height: 0.28rem;
+            border-radius: 999px;
+            background: linear-gradient(90deg, rgba(255, 95, 183, 0.94), rgba(125, 92, 255, 0.94));
+        }
+
+        .grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .card {
+            border-radius: var(--radius);
+            background: rgba(255, 255, 255, 0.96);
+            border: 1px solid rgba(255, 95, 183, 0.18);
+            padding: 1.75rem;
+            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+            box-shadow: 0 20px 48px rgba(0, 0, 0, 0.08);
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255, 95, 183, 0.35);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            margin-bottom: 0.85rem;
+            font-size: 1.3rem;
+            color: var(--heading);
+        }
+
+        .card p {
+            margin: 0;
+            line-height: 1.75;
+            color: var(--muted);
+        }
+
+        .skills {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .skill {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.1rem 1.3rem;
+            border-radius: 1.75rem;
+            background: #ffffff;
+            border: 1px solid rgba(255, 95, 183, 0.16);
+            transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+            min-height: 98px;
+            box-shadow: 0 12px 30px rgba(18, 30, 55, 0.06);
+        }
+
+        .skill:hover {
+            transform: translateY(-2px);
+            background: rgba(255, 95, 183, 0.08);
+        }
+
+        .skill strong {
+            font-weight: 700;
+            color: var(--heading);
+            font-size: 1rem;
+        }
+
+        .skill span {
+            color: var(--muted);
+            text-align: right;
+            font-size: 0.96rem;
+            line-height: 1.55;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        }
+
+        .contact-card {
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: 1fr;
+        }
+
+        .contact-card a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .highlight {
+            color: var(--accent);
+        }
+
+        @media (min-width: 900px) {
+            .hero {
+                grid-template-columns: 1.25fr 0.95fr;
+            }
+
+            .contact-card {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 900px) {
+            header {
+                flex-wrap: wrap;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .hero {
+                padding: 2rem;
+            }
+
+            .hero::after {
+                display: none;
+            }
+        }
+
+        @media (max-width: 640px) {
+            body {
+                font-size: 0.96rem;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+
+            .theme-button,
+            .button-primary,
+            .button-secondary {
+                width: 100%;
+            }
+
+            .profile-card,
+            .card {
+                padding: 1.4rem;
+            }
+
+            .section h2 {
+                font-size: 1.75rem;
+            }
+
+            .skill {
+                flex-direction: column;
+                align-items: stretch;
+                text-align: left;
+            }
+
+            .skill span {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="brand">
+            <span>📁</span>
+            <strong>Praisymol</strong>
+        </div>
+        <button class="theme-button">View Profile</button>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <p class="tagline">ECE Portfolio &amp; Student Profile</p>
+                <h1>Hi, I'm <span class="highlight">M.N Praisymol Sunny</span>, pursuing <strong>B.Tech in ECE</strong>.</h1>
+                <b><p>Welcome to my portfolio. I am an Electronics and Communication Engineering student building strong foundations in digital systems, signal processing, embedded design, and practical engineering projects.</p></b>
+                <div class="buttons">
+                    <a class="button-primary" href="#contact">Contact Me</a>
+                    <a class="button-secondary" href="#portfolio">View Projects</a>
+                </div>
+            </div>
+
+            <aside class="profile-card">
+                <h2>Profile</h2>
+                <div class="meta"><b>
+                    <p><strong>Name:</strong> M.N Praisymol Sunny</p>
+                    <p><strong>Degree:</strong> B.Tech in Electronics &amp; Communication Engineering</p>
+                    <p><strong>Field:</strong> ECE, Digital Systems &amp; Embedded Design</p>
+                    <p><strong>Location:</strong> India</p>
+                    <p><strong>Focus:</strong> Academic research, circuit projects, and portfolio development</p>
+                    </b>
+                </div>
+            </aside>
+        </section>
+
+        <section class="section" id="skills">
+            <h2>Skills</h2>
+            <div class="grid skills">
+                <div class="skill">
+                    <strong>Digital Systems</strong>
+                   <b><span>Logic design, microcontrollers, FPGA basics</span></b>
+                </div>
+                <div class="skill">
+                    <strong>Analog &amp; Digital Circuits</strong>
+                   <b><span>Signal chains, sensors, power management</span></b>
+                </div>
+                <div class="skill">
+                    <strong>Communication</strong>
+                   <b><span>Wireless systems, modulation, transmission concepts</span></b>
+                </div>
+                <div class="skill">
+                    <strong>Embedded Projects</strong>
+                   <b><span>Arduino, Raspberry Pi, system integration</span></b>
+                </div>
+                <div class="skill">
+                    <strong>Programming</strong>
+                   <b><span>C, Python, MATLAB, hardware description basics</span></b>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="portfolio">
+            <h2>Portfolio</h2>
+            <div class="portfolio-grid">
+                <article class="card project">
+                    <h3 class="project-title">Smart Home Controller</h3>
+                   <b> <p>Designed a prototype using microcontrollers and sensors to automate home lighting and monitor environmental data.</p></b>
+                </article>
+                <article class="card project">
+                    <h3 class="project-title">Wireless Communication Study</h3>
+                   <b> <p>Created a report and simulation for modular communication methods, focusing on signal integrity and bandwidth optimization.</p></b>
+                </article>
+                <article class="card project">
+                    <h3 class="project-title">Embedded Display Module</h3>
+                   <b> <p>Built an interactive LCD interface for an embedded system, combining control logic and real-time status updates.</p></b>
+                </article>
+            </div>
+        </section>
+
+        <section class="section" id="about">
+            <h2>About Me</h2>
+            <div class="card">
+               <b> <p>I am an ambitious ECE student pursuing B.Tech with a focus on applying classroom knowledge to hands-on projects. My portfolio highlights practical experience in electronics, digital design, and embedded systems.</p>
+                <p>I enjoy working on collaborative engineering challenges, learning new hardware tools, and developing solutions that bridge theory with real-world impact.</p></b>
+            </div>
+        </section>
+
+        <section class="section" id="contact">
+            <h2>Contact</h2>
+            <div class="contact-card">
+                <div class="card">
+                    <h3>Get in Touch</h3>
+                    <p>If you'd like to discuss projects, internships, or collaborations, please reach out.</p>
+                    <p><strong>Email:</strong> praisymn06@gmail.com</p>
+                    <p><strong>Phone:</strong> +91 7794856288</p>
+                </div>
+                <div class="card">
+                    <h3>Availability</h3>
+                    <p>Open to academic projects, internships, and collaborative ECE work. Ready to contribute with a strong learning mindset and practical portfolio highlights.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

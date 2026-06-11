@@ -1,0 +1,9 @@
+
+body{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 10%;
+    height: 10%;
+    background: radial-gradient(circle, red, orange, yellow, green, blue, indigo, violet);
+}
