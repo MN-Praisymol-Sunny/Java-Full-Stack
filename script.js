@@ -109,23 +109,56 @@ function num(n){
     
 }
 num(1);
-function guess(n) {
-    let userGuess = Number(prompt("Enter a number:"));
+function generateSecretNumber() {
+    return String(Math.floor(Math.random() * 900) + 100);
+}
 
-    if (userGuess == n) {
-        console.log("Congratulations! You guessed the number.");
-    } else if (userGuess < n) {
-        console.log("Too low! Try again."+userGuess+"");
-        guess(n);
-    } else {
-        console.log("Too high! Try again."+userGuess+"");
-        guess(n);
+function evaluateGuess(secret, guess) {
+    const results = [];
+    for (let i = 0; i < 3; i++) {
+        if (guess[i] === secret[i]) {
+            results.push(`Digit ${guess[i]} is correct and in the right position (${i + 1}).`);
+        } else if (secret.includes(guess[i])) {
+            results.push(`Digit ${guess[i]} is in the number but in a different position.`);
+        } else {
+            results.push(`Digit ${guess[i]} is not in the number.`);
+        }
+    }
+    return results;
+}
+
+function guessThreeDigitNumber() {
+    const secret = generateSecretNumber();
+    let attempts = 0;
+
+    while (true) {
+        const userGuess = prompt("Guess a 3-digit number:");
+        if (userGuess === null) {
+            console.log("Game cancelled.");
+            break;
+        }
+
+        const guess = userGuess.trim();
+        if (!/^[0-9]{3}$/.test(guess)) {
+            alert("Please enter exactly 3 digits (e.g. 427).");
+            continue;
+        }
+
+        attempts++;
+        const feedback = evaluateGuess(secret, guess);
+        alert(`Attempt ${attempts}:\n${feedback.join('\n')}`);
+
+        if (guess === secret) {
+            alert(`Correct! The secret number was ${secret}. You guessed it in ${attempts} attempts.`);
+            console.log(`Secret number ${secret} guessed in ${attempts} attempts.`);
+            break;
+        }
     }
 }
 
-let number = Math.floor(Math.random() * 100) + 1;
-guess(number);*/
-let chocolates=["melodi","fivestar","kitkat","kachamango","dairymilk","milkybar"];
+guessThreeDigitNumber();
+
+/*let chocolates=["melodi","fivestar","kitkat","kachamango","dairymilk","milkybar"];
 let sales={
     praisy:chocolates[0],
     sivani:chocolates[1],
@@ -137,3 +170,36 @@ let sales={
 
 };
 console.log(sales);
+function guess(n) {
+    let userGuess = Number(prompt("Enter a number:"));
+
+    if (userGuess == n) {
+        console.log("Congratulations! You guessed the number.");
+    } else if (userGuess < n) {
+        console.log("Too low! Try again.");
+        guess(n);
+    } else {
+        console.log("Too high! Try again.");
+        guess(n);
+    }
+}
+
+let number = Math.floor(Math.random() * 100) + 1;
+guess(number);
+
+function guess(c){
+    let userGuess=Character(prompt("Enter a letter:"));
+
+    if(userGuess==c){
+        console.log("Congratulations! You guessed the letter.");
+    } else if (userGuess < c) {
+        console.log("Too low! Try again.");
+        guess(c);
+    } else {
+        console.log("Too high! Try again.");
+        guess(c);
+    }
+}
+
+    let Character=Math.floor(Math.random()*26)+1;
+    guess(Character);*/

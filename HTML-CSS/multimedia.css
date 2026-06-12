@@ -1,0 +1,33 @@
+
+*{
+    background:radial-gradient(circle,white,pink,white,pink);
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+img, video, audio{
+    border: 100px 150px;
+    border-style: solid;
+    border-color: black;
+    border-radius: 8px;
+}
+
+img, video{
+    gap: 30px;
+}
+
+audio{
+    width: 100%;
+    max-width: 500px;
+    order: 3;
+}
