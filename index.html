@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M.N Praisymol Sunny | ECE Portfolio</title>
+    <title>M.N Praisymol Sunny | ECE </title>
     <style>
         :root {
             --bg: #fff7d8;
@@ -238,6 +238,32 @@
             color: var(--muted);
         }
 
+        .profile-card {
+            display: grid;
+            grid-template-columns: 1fr 0.8fr;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .profile-info {
+            display: grid;
+            gap: 1.15rem;
+        }
+
+        .profile-photo {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            border-radius: 1.5rem;
+            border: 2px solid rgba(255, 95, 183, 0.25);
+        }
+
+        @media (max-width: 900px) {
+            .profile-card {
+                grid-template-columns: 1fr;
+            }
+        }
+
         .section {
             margin-top: 3.5rem;
         }
@@ -353,7 +379,55 @@
             color: var(--accent);
         }
 
-        @media (min-width: 900px) {
+        .education-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(255, 255, 255, 0.96);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 20px 48px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(255, 95, 183, 0.18);
+        }
+
+        .education-table thead {
+            background: linear-gradient(135deg, rgba(255, 95, 183, 0.12), rgba(108, 61, 200, 0.08));
+            border-bottom: 2px solid rgba(255, 95, 183, 0.25);
+        }
+
+        .education-table th {
+            padding: 1.2rem 1.5rem;
+            text-align: left;
+            font-weight: 700;
+            color: var(--heading);
+            font-size: 1rem;
+            letter-spacing: 0.05em;
+        }
+
+        .education-table td {
+            padding: 1.2rem 1.5rem;
+            border-bottom: 1px solid rgba(255, 95, 183, 0.12);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .education-table tbody tr:hover {
+            background: rgba(255, 95, 183, 0.05);
+        }
+
+        .education-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        @media (max-width: 900px) {
+            .education-table {
+                font-size: 0.9rem;
+            }
+
+            .education-table th,
+            .education-table td {
+                padding: 0.8rem 1rem;
+            }
+        }
             .hero {
                 grid-template-columns: 1.25fr 0.95fr;
             }
@@ -430,22 +504,22 @@
                 <p class="tagline">ECE Portfolio &amp; Student Profile</p>
                 <h1>Hi, I'm <span class="highlight">M.N Praisymol Sunny</span>, pursuing <strong>B.Tech in ECE</strong>.</h1>
                 <b><p>Welcome to my portfolio. I am an Electronics and Communication Engineering student building strong foundations in digital systems, signal processing, embedded design, and practical engineering projects.</p></b>
-                <div class="buttons">
-                    <a class="button-primary" href="#contact">Contact Me</a>
-                    <a class="button-secondary" href="#portfolio">View Projects</a>
-                </div>
+                
             </div>
 
             <aside class="profile-card">
-                <h2>Profile</h2>
-                <div class="meta"><b>
-                    <p><strong>Name:</strong> M.N Praisymol Sunny</p>
-                    <p><strong>Degree:</strong> B.Tech in Electronics &amp; Communication Engineering</p>
-                    <p><strong>Field:</strong> ECE, Digital Systems &amp; Embedded Design</p>
-                    <p><strong>Location:</strong> India</p>
-                    <p><strong>Focus:</strong> Academic research, circuit projects, and portfolio development</p>
-                    </b>
+                <div class="profile-info">
+                    <h2 style="margin: 0;">Profile</h2>
+                    <div class="meta"><b>
+                        <p><strong>Name:</strong> M.N Praisymol Sunny</p>
+                        <p><strong>Degree:</strong> B.Tech in Electronics &amp; Communication Engineering</p>
+                        <p><strong>Field:</strong> ECE, Digital Systems &amp; Embedded Design</p>
+                        <p><strong>Location:</strong> India</p>
+                        <p><strong>Focus:</strong> Academic research, circuit projects, and portfolio development</p>
+                        </b>
+                    </div>
                 </div>
+                <img src="photo.jpeg.jpeg" alt="Profile Photo" class="profile-photo">
             </aside>
         </section>
 
@@ -498,6 +572,108 @@
             <div class="card">
                <b> <p>I am an ambitious ECE student pursuing B.Tech with a focus on applying classroom knowledge to hands-on projects. My portfolio highlights practical experience in electronics, digital design, and embedded systems.</p>
                 <p>I enjoy working on collaborative engineering challenges, learning new hardware tools, and developing solutions that bridge theory with real-world impact.</p></b>
+            </div>
+        </section>
+
+        <section class="section" id="education">
+            <h2>Educational Details</h2>
+            <table class="education-table">
+                <thead>
+                    <tr>
+                        <th>Level</th>
+                        <th>Institution</th>
+                        <th>Year</th>
+                        <th>Percentage/CGPA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>B.Tech</strong></td>
+                        <td>Electronics &amp; Communication Engineering</td>
+                        <td>2024-2028</td>
+                        <td>9.51 CGPA</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Higher secondary</strong></td>
+                        <td>Sai Sri Chaithanya Junior College</td>
+                        <td>2022-2024</td>
+                        <td>95%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Secondary</strong></td>
+                        <td>Elena Bettini English Medium School</td>
+                        <td>2021-2022</td>
+                        <td>93%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="section" id="hobbies">
+            <h2>Hobbies</h2>
+            <div class="portfolio-grid">
+                <article class="card">
+                    <h3>Drawing</h3>
+                    <p>Exploring creative expression through sketching and visual design.</p>
+                </article>
+                <article class="card">
+                    <h3>Painting</h3>
+                    <p>Working with various painting techniques and mediums.</p>
+                </article>
+                <article class="card">
+                    <h3>Listening to Music</h3>
+                    <p>Music appreciation and exploring diverse genres and artists.</p>
+                </article>
+                <article class="card">
+                    <h3>Crocheting</h3>
+                    <p>Creating handmade crafts and exploring fiber arts.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section" id="languages">
+            <h2>Languages</h2>
+            <div class="grid skills">
+                <div class="skill">
+                    <strong>English</strong>
+                    <span>Professional proficiency</span>
+                </div>
+                <div class="skill">
+                    <strong>Telugu</strong>
+                    <span>Conversational proficiency</span>
+                </div>
+                <div class="skill">
+                    <strong>Malayalam</strong>
+                    <span>Native fluency</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="internships">
+            <h2>Internships</h2>
+            <div class="portfolio-grid">
+                <article class="card">
+                    <h3>ES,IOT & AR</h3>
+                    <p>Completed a selective 5-day technical internship on Embedded Systems, IoT, and Augmented Reality at IIIT Kottayam. <br> Developed a foundational understanding of hardware interfacing, sensor networks, and immersive AR technologies through rigorous practical sessions. Actively engaged in collaborative lab exercises, strengthening technical problem-solving abilities and gaining insight into industry-standard development workflows for smart systems.</p>
+                </article>
+                <article class="card">
+                    <h3>EM Waves(ANSYS)</h3>
+                    <p>Completed an online technical internship focused on Electromagnetic (EM) Waves and RF design facilitated by EduSkills. <br> Acquired hands-on experience utilizing ANSYS software to model, simulate, and analyze high-frequency electromagnetic components, including antenna structures and waveguides. Developed a solid understanding of $S$-parameters, radiation patterns, and electromagnetic field behavior, gaining vital insight into industry-standard virtual prototyping and simulation-driven product development.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section" id="certificates">
+            <h2>Certificates</h2>
+            <div class="portfolio-grid">
+                <article class="card">
+                    <h3>Participation Certificte(Top Performer)</h3>
+                    <p>ES,IOT & AR.</p>
+                </article>
+                <article class="card">
+                    <h3> Participation Certificate </h3>
+                    <p>got appreciation,paricipation certificate from eduskills</p>
+                </article>
             </div>
         </section>
 
