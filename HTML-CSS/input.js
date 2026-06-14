@@ -3,12 +3,12 @@ let num=0;
 function greet_afternoon()
 {
     let text=document.getElementById("greet");
-    text.innerText=greetings(num);
     num+=1;
     if(num>3){
         num=0;
-        console.log("greetings"+num)
     }
+    text.innerText=greetings[num];
+    console.log("greetings"+num)
 }
 function turn_on(){
     let light=document.getElementById("on")
